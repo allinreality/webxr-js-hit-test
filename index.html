@@ -67,6 +67,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       arObject.visible = false;
       scene.addNode(arObject);
 
+      let arObject1 = new Node();
+      arObject1.visible = false
+      scene.addNode(arObject1);
+
+      let title = new Gltf2Node({url: 'media/gltf/text/placehere.gltf'});
+      arObject.addNode(title);
+
       let flower = new Gltf2Node({url: 'media/gltf/viking_room/viking_room.gltf'});
       arObject.addNode(flower);
 
@@ -80,7 +87,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       vec3.set(shadow.scale, 0.15, 0.15, 0.15);
       arObject.addNode(shadow);
 
-      const MAX_FLOWERS = 30;
+      const MAX_FLOWERS = 1;
       let flowers = [];
 
       // Ensure the background is transparent for AR.
@@ -160,10 +167,18 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // specified transform.
       function addARObjectAt(matrix) {
         let newFlower = arObject.clone();
+
+        let title = arObject1.clone();
+       
         newFlower.visible = true;
         newFlower.matrix = matrix;
-        scene.addNode(newFlower);
 
+        title.visible = true;
+        title.matrix = matrix;
+        
+        scene.addNode(newFlower);
+        scene.addNode(title);
+        
         flowers.push(newFlower);
 
         // For performance reasons if we add too many objects start
