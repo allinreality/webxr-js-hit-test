@@ -185,7 +185,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         // removing the oldest ones to keep the scene complexity
         // from growing too much.
         if (flowers.length > MAX_FLOWERS) {
+          reticle.visible = false;
           let oldFlower = flowers.shift();
+          
           scene.removeNode(oldFlower);
         }
       }
