@@ -3,35 +3,13 @@
         "generator" : "Khronos glTF Blender I/O v1.5.17",
         "version" : "2.0"
     },
-    "extensionsUsed" : [
-        "KHR_lights_punctual"
-    ],
-    "extensionsRequired" : [
-        "KHR_lights_punctual"
-    ],
-    "extensions" : {
-        "KHR_lights_punctual" : {
-            "lights" : [
-                {
-                    "color" : [
-                        1,
-                        1,
-                        1
-                    ],
-                    "intensity" : 1000,
-                    "type" : "point",
-                    "name" : "Light"
-                }
-            ]
-        }
-    },
     "scene" : 0,
     "scenes" : [
         {
             "name" : "Scene",
             "nodes" : [
                 5,
-                7
+                6
             ]
         }
     ],
@@ -98,23 +76,6 @@
             ]
         },
         {
-            "extensions" : {
-                "KHR_lights_punctual" : {
-                    "light" : 0
-                }
-            },
-            "name" : "Light_Orientation",
-            "rotation" : [
-                -0.7071067690849304,
-                0,
-                0,
-                0.7071067690849304
-            ]
-        },
-        {
-            "children" : [
-                6
-            ],
             "name" : "Light",
             "rotation" : [
                 0.16907575726509094,
@@ -125,7 +86,7 @@
             "translation" : [
                 0.032332420349121094,
                 4.669943809509277,
-                -3.67446231842041
+                -1.4929053783416748
             ]
         }
     ],
