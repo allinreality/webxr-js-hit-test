@@ -122,6 +122,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       function onSessionStarted(session) {
         session.addEventListener('end', onSessionEnded);
         session.addEventListener('select', onSelect);
+        session.addEventListener('selectObject', onSelectObject);
 
         if (!gl) {
           gl = createWebGLContext({
@@ -203,6 +204,21 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
       }
 
+      function onSelectObject(event){
+        const targetRaySpace = event.inputSource.targetRaySpace;
+
+            let targetRayPose = event.frame.getPose(targetRaySpace, viewerRefSpace);
+            if (!targetRayPose) {
+              return;
+            }
+
+            let targetRayTransform = targetRayPose.transform;
+            let targetObject = findTargetObject(targetRayTransform);
+
+            if (targetObject) {
+             targetObject.visible = false;
+            }
+      }
       // Called every time a XRSession requests that a new frame be drawn.
       function onXRFrame(t, frame) {
         let session = frame.session;
